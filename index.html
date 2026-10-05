@@ -1,1 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Jersey Adda — Premium Football Jerseys</title>
+  <meta name="description" content="Jersey Adda — Premium Football Jerseys & Football Wear in Bangladesh">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07121f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 18, 31, 0.96);
+      border-bottom: 1px solid rgba(0, 220, 255, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #19d9ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: #d9e3ed;
+    }
+
+    .nav-links a:hover {
+      color: #19d9ff;
+    }
+
+    .nav-btn {
+      background: #19d9ff;
+      color: #04101a;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(0, 210, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 20% 70%, rgba(0, 120, 255, 0.08), transparent 30%),
+        #07121f;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #19d9ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: #19d9ff;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #b9c7d5;
+      font-size: 18px;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 15px 24px;
+      border-radius: 9px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .primary-btn {
+      background: #19d9ff;
+      color: #04101a;
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 42px;
+    }
+
+    .section-heading small {
+      color: #19d9ff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      margin-top: 8px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading p {
+      color: #9eafbf;
+      margin-top: 10px;
+      max-width: 650px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      background: #091827;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #0d2032;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(25, 217, 255, 0.35);
+    }
+
+    .product-image {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle, rgba(25,217,255,0.12), transparent 55%),
+        #06111d;
+      color: #718497;
+      font-size: 14px;
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .product-meta {
+      color: #8fa2b5;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: 800;
+      color: #19d9ff;
+      margin-bottom: 16px;
+    }
+
+    .product-btn {
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      background: #19d9ff;
+      color: #04101a;
+      font-weight: 700;
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 28px 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: #091827;
+    }
+
+    .feature-number {
+      color: #19d9ff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #8fa2b5;
+      font-size: 14px;
+    }
+
+    /* QUALITY */
+    .quality {
+      background: #091827;
+    }
+
+    .quality-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .quality-text h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.05;
+      margin: 12px 0 20px;
+    }
+
+    .quality-text p {
+      color: #9eafbf;
+      margin-bottom: 25px;
+    }
+
+    .quality-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .quality-item {
+      padding: 14px 16px;
+      border-left: 2px solid #19d9ff;
+      background: rgba(255,255,255,0.025);
+      color: #dbe5ed;
+    }
+
+    .quality-visual {
+      min-height: 380px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at center, rgba(25,217,255,0.15), transparent 50%),
+        #06111d;
+      border: 1px solid rgba(25,217,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #607386;
+      padding: 30px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(25,217,255,0.11), transparent 45%),
+        #07121f;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 6vw, 56px);
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: #9eafbf;
+      margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 35px 0;
+      color: #8193a5;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quality-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">Jersey <span>Adda</span></a>
+
+      <div class="nav-links">
+        <a href="#shop">Shop</a>
+        <a href="#quality">Quality</a>
+        <a href="#why-us">Why Us</a>
+      </div>
+
+      <a href="#shop" class="nav-btn">Shop Jerseys</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <span class="eyebrow">Premium Football Jerseys</span>
+
+        <h1>
+          Where Football<br>
+          <span>Meets Jersey.</span>
+        </h1>
+
+        <p>
+          Premium football jerseys for fans who live the game.
+          Clean quality, comfortable fabric and trusted delivery across Bangladesh.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#shop" class="primary-btn">Shop Jerseys</a>
+          <a href="#quality" class="secondary-btn">Explore Quality</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- PRODUCTS -->
+  <section class="products" id="shop">
+    <div class="container">
+
+      <div class="section-heading">
+        <small>Featured Collection</small>
+        <h2>Choose Your Jersey</h2>
+        <p>
+          Explore premium football jerseys from your favourite clubs and teams.
+        </p>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="product-image">
+            PRODUCT IMAGE
+          </div>
+
+          <div class="product-info">
+            <h3>Barcelona Away 26/27</h3>
+            <div class="product-meta">Player Edition · S–XXL</div>
+            <div class="price">৳999</div>
+            <a href="#" class="product-btn">View Product</a>
+          </div>
+        </div>
+
+
+        <div class="product-card">
+          <div class="product-image">
+            PRODUCT IMAGE
+          </div>
+
+          <div class="product-info">
+            <h3>Real Madrid Home 26/27</h3>
+            <div class="product-meta">Player Edition · S–XXL</div>
+            <div class="price">৳999</div>
+            <a href="#" class="product-btn">View Product</a>
+          </div>
+        </div>
+
+
+        <div class="product-card">
+          <div class="product-image">
+            PRODUCT IMAGE
+          </div>
+
+          <div class="product-info">
+            <h3>Chelsea Home</h3>
+            <div class="product-meta">Fan Edition · S–XXL</div>
+            <div class="price">৳799</div>
+            <a href="#" class="product-btn">View Product</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY US -->
+  <section id="why-us">
+    <div class="container">
+
+      <div class="section-heading">
+        <small>Jersey Adda Standard</small>
+        <h2>Built Around Trust</h2>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-number">01</div>
+          <h3>Premium Fabric</h3>
+          <p>Comfortable football jersey fabric selected for everyday wear.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-number">02</div>
+          <h3>Clean Stitching</h3>
+          <p>Attention to stitching and finishing for a better overall feel.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-number">03</div>
+          <h3>COD Available</h3>
+          <p>Pay the remaining product amount when your jersey arrives.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-number">04</div>
+          <h3>Bangladesh Delivery</h3>
+          <p>We deliver football jerseys across Bangladesh.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- QUALITY -->
+  <section class="quality" id="quality">
+    <div class="container">
+
+      <div class="quality-box">
+
+        <div class="quality-text">
+
+          <small class="eyebrow">Quality First</small>
+
+          <h2>
+            Look Good.<br>
+            Feel the Game.
+          </h2>
+
+          <p>
+            We focus on the details that matter when you buy a football jersey:
+            fabric, stitching, print and badge finishing.
+          </p>
+
+          <div class="quality-list">
+
+            <div class="quality-item">
+              ✓ Comfortable Fabric
+            </div>
+
+            <div class="quality-item">
+              ✓ Quality Stitching
+            </div>
+
+            <div class="quality-item">
+              ✓ Clean Print & Badge
+            </div>
+
+            <div class="quality-item">
+              ✓ Premium Finishing
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="quality-visual">
+          PRODUCT / JERSEY IMAGE AREA
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+
+      <h2>Ready to Wear Your Game?</h2>
+
+      <p>
+        Find your next football jersey at Jersey Adda.
+      </p>
+
+      <a href="#shop" class="primary-btn">
+        Explore Jerseys
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+
+      <div>
+        <div class="footer-brand">Jersey Adda</div>
+        <div>Where Football Meets Jersey.</div>
+      </div>
+
+      <div>
+        © 2026 Jersey Adda. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+  </html>
